@@ -43,6 +43,30 @@ const chatHistory = [
   }
 ];
 
+// Define interfaces for the entity types
+interface Character {
+  id: string;
+  name: string;
+  image: string;
+  description: string;
+  rating: number;
+  lastChat?: string;
+  labels: string[];
+  greeting: string;
+  aiStyle: string;
+}
+
+interface Scene {
+  id: string;
+  title: string;
+  image: string;
+  description: string;
+  character: string;
+  category: string;
+  introMessage: string;
+  responseStyle: string;
+}
+
 const Chats = () => {
   return (
     <div className="min-h-screen bg-accent-blue/5">
@@ -90,7 +114,10 @@ const Chats = () => {
             
             if (!entity) return null;
             
-            const name = isScene ? entity.title : (entity as any).name;
+            // Properly type check before accessing properties
+            const name = isScene 
+              ? (entity as Scene).title 
+              : (entity as Character).name;
             const image = entity.image;
             const linkPath = isScene ? `/scene/${entityId}` : `/chat/${entityId}`;
             
