@@ -15,20 +15,6 @@ export interface SceneProps {
 
 const SceneCard = ({ id, title, image, description, character, category }: SceneProps) => {
   const [isFlipped, setIsFlipped] = useState(false);
-  const [startX, setStartX] = useState(0);
-
-  const handleTouchStart = (e: React.TouchEvent) => {
-    setStartX(e.touches[0].clientX);
-  };
-
-  const handleTouchEnd = (e: React.TouchEvent) => {
-    const endX = e.changedTouches[0].clientX;
-    const diff = startX - endX;
-
-    if (Math.abs(diff) > 50) { // Minimum swipe distance
-      setIsFlipped(prev => !prev);
-    }
-  };
 
   const handleClick = () => {
     setIsFlipped(prev => !prev);
@@ -37,8 +23,6 @@ const SceneCard = ({ id, title, image, description, character, category }: Scene
   return (
     <div 
       className={`scene-card ${isFlipped ? 'flipped' : ''}`}
-      onTouchStart={handleTouchStart}
-      onTouchEnd={handleTouchEnd}
       onClick={handleClick}
     >
       <div className="card-inner">

@@ -80,23 +80,23 @@
   }
   
   .character-card {
-    @apply relative bg-card text-card-foreground rounded-xl shadow-lg hover:shadow-xl transition-all duration-500 overflow-hidden border border-border perspective-1000;
+    @apply relative bg-card text-card-foreground rounded-xl shadow-lg hover:shadow-xl transition-all duration-500 overflow-hidden border border-border;
   }
   
   .scene-card {
-    @apply relative bg-card text-card-foreground rounded-xl shadow-lg hover:shadow-xl transition-all duration-500 overflow-hidden border border-border perspective-1000;
+    @apply relative bg-card text-card-foreground rounded-xl shadow-lg hover:shadow-xl transition-all duration-500 overflow-hidden border border-border;
   }
   
   .card-inner {
-    @apply relative w-full h-full transition-transform duration-500 transform-style-3d;
+    @apply relative w-full h-full transition-transform duration-500;
   }
   
   .card-front, .card-back {
-    @apply absolute w-full h-full backface-hidden;
+    @apply absolute w-full h-full;
   }
   
   .card-back {
-    @apply transform rotate-y-180;
+    @apply hidden;
   }
   
   .card-hover {
@@ -104,6 +104,14 @@
   }
   
   .flipped .card-inner {
-    @apply transform rotate-y-180;
+    @apply transform;
+  }
+
+  .flipped .card-front {
+    @apply hidden;
+  }
+
+  .flipped .card-back {
+    @apply block;
   }
 }

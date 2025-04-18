@@ -16,21 +16,7 @@ export interface CharacterProps {
 
 const CharacterCard = ({ id, name, image, description, rating, lastChat, labels }: CharacterProps) => {
   const [isFlipped, setIsFlipped] = useState(false);
-  const [startX, setStartX] = useState(0);
-
-  const handleTouchStart = (e: React.TouchEvent) => {
-    setStartX(e.touches[0].clientX);
-  };
-
-  const handleTouchEnd = (e: React.TouchEvent) => {
-    const endX = e.changedTouches[0].clientX;
-    const diff = startX - endX;
-
-    if (Math.abs(diff) > 50) { // Minimum swipe distance
-      setIsFlipped(prev => !prev);
-    }
-  };
-
+  
   const handleClick = () => {
     setIsFlipped(prev => !prev);
   };
@@ -38,8 +24,6 @@ const CharacterCard = ({ id, name, image, description, rating, lastChat, labels 
   return (
     <div 
       className={`character-card ${isFlipped ? 'flipped' : ''}`}
-      onTouchStart={handleTouchStart}
-      onTouchEnd={handleTouchEnd}
       onClick={handleClick}
     >
       <div className="card-inner">
