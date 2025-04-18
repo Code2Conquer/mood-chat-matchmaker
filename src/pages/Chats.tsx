@@ -90,7 +90,7 @@ const Chats = () => {
             
             if (!entity) return null;
             
-            const name = isScene ? entity.title : entity.name;
+            const name = isScene ? entity.title : (entity as any).name;
             const image = entity.image;
             const linkPath = isScene ? `/scene/${entityId}` : `/chat/${entityId}`;
             
