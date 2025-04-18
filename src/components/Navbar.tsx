@@ -7,13 +7,13 @@ import { Search, MessageSquare, CreditCard, LogIn } from 'lucide-react';
 
 const Navbar = () => {
   return (
-    <nav className="w-full bg-white/80 backdrop-blur-md sticky top-0 z-50 border-b border-border">
+    <nav className="w-full bg-card/80 backdrop-blur-md sticky top-0 z-50 border-b border-border">
       <div className="container mx-auto px-4 py-3">
         <div className="flex items-center justify-between">
           <div className="flex items-center space-x-2">
-            <Link to="/" className="font-bold text-xl text-primary-purple flex items-center">
-              <span className="bg-primary-purple text-white p-1 rounded-md mr-2">AI</span>
-              CharacterChat
+            <Link to="/" className="font-bold text-xl text-primary flex items-center">
+              <span className="bg-primary text-white p-1 rounded-md mr-2">LS</span>
+              Livescene
             </Link>
           </div>
           
