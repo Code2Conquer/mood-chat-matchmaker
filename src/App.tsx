@@ -12,8 +12,6 @@ import Chat from "./pages/Chat";
 import Scene from "./pages/Scene";
 import Chats from "./pages/Chats";
 import Payments from "./pages/Payments";
-import CharacterList from "./pages/CharacterList";
-import SceneList from "./pages/SceneList";
 
 const queryClient = new QueryClient();
 
@@ -30,8 +28,6 @@ const App = () => (
           <Route path="/scene/:id" element={<Scene />} />
           <Route path="/chats" element={<Chats />} />
           <Route path="/payments" element={<Payments />} />
-          <Route path="/characters/:category" element={<CharacterList />} />
-          <Route path="/scenes/:category" element={<SceneList />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
